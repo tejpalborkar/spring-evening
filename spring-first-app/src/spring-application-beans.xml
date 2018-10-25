@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="no">
+		<property name="model" value="BMW"></property>
+		<property name="year" value="123"></property>
+	</bean> -->
+
+<!-- <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="byName">
+		<property name="model" value="BMW"></property>
+		<property name="year" value="123"></property>
+	</bean>
+ -->
+	
+	<!-- <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="byType">
+		<property name="model" value="BMW"></property>
+		<property name="year" value="123"></property>
+	</bean>
+	 -->
+	<bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="constructor">
+		<!-- <property name="model" value="BMW"></property>
+		<property name="year" value="123"></property> -->
+        <constructor-arg value="Mukesh" index="0"/>
+		<constructor-arg value="24" index="1" />
+	</bean>
+	
+	<bean id="engine" class="com.assisimilate.spring.autowiring.Engine">
+		<property name="chasisNo" value="12345678"></property>
+		
+	</bean>
+
+
+</beans>

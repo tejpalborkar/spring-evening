@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Setter DI -->
+	<bean id="employee" class="com.assisimilate.spring.first.Employee">
+		<property name="id" value="1234"></property>
+		<property name="firstName" value="John"></property>
+		<property name="empAddress" ref="address"></property>
+	</bean>
+
+
+	<!-- Constructor DI -->
+	<bean id="address" class="com.assisimilate.spring.first.Address">
+		<constructor-arg value="Pune"></constructor-arg>
+		<constructor-arg value="Maharashtra"></constructor-arg>
+	</bean>
+
+
+
+	<bean id="fruits" class="com.assisimilate.spring.first.Fruits">
+		<property name="fruitNames">
+			<list>
+				<value>Apple</value>
+				<value>Mango</value>
+				<value>Pineapple</value>
+			</list>
+		<!-- <set>
+			<value></value>
+		</set>
+		<map>
+			<entry key="" value=""></entry>
+		</map> -->
+		</property>
+	</bean>
+
+
+</beans>
