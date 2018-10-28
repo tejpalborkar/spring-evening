@@ -7,9 +7,13 @@ public class Test {
 	public static void main(String[] args) {
 		String springXmlPath = "spring-application-beans.xml";
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(springXmlPath);
-		
-		Car car=(Car) applicationContext.getBean("car");
+
+		Car car = (Car) applicationContext.getBean("car");
 		System.out.println(car);
+		
+		Engine engine = (Engine) applicationContext.getBean("engine");
+		
+		System.out.println("Engine bean: "+ engine);
 
 	}
 }
