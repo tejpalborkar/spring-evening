@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class EmpController {
-	
+
 	@Autowired
 	private EmpDao dao;// will inject dao from xml file
 
@@ -50,10 +50,10 @@ public class EmpController {
 	 * It displays object data into form for the given id. The @PathVariable puts
 	 * URL data into variable.
 	 */
-	
-	//editemp/1/
+
+	// editemp/1/
 	@RequestMapping(value = "/editemp/{id}")
-	public ModelAndView edit(@PathVariable ("id") int id) {
+	public ModelAndView edit(@PathVariable("id") int id) {
 		Emp emp = dao.getEmpById(id);
 		return new ModelAndView("empeditform", "command", emp);
 	}

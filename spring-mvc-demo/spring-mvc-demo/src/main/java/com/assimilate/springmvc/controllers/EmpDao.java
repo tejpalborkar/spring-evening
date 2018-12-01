@@ -19,6 +19,8 @@ public class EmpDao {
 	public int save(Emp p) {
 		String sql = "insert into Emp99(name,salary,designation) values('" + p.getName() + "'," + p.getSalary() + ",'"
 				+ p.getDesignation() + "')";
+		
+		System.out.println(sql);
 		return template.update(sql);
 	}
 
