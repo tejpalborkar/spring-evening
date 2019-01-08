@@ -13,8 +13,8 @@ public class Test {
 		EmployeeDao dao = (EmployeeDao) ctx.getBean("edao");
 		
 		int status =0;
-		status =dao.saveEmployee(new Employee(201, "Sandeep", 25000));
-		System.out.println("insert status: " + status);
+		boolean result =dao.saveEmployeeByPreparedStatement(new Employee(301, "Tejpal", 25000));
+		System.out.println("insert status: " + result);
 
 		status = dao.updateEmployee(new Employee(201, "Sandeep", 25000));
 		System.out.println("update status: " + status);
