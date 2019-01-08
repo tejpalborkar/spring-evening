@@ -13,13 +13,14 @@ public class Test {
 		EmployeeDao dao = (EmployeeDao) ctx.getBean("edao");
 		
 		int status =0;
-//		System.out.println("insert status: " + status);
+		status =dao.saveEmployee(new Employee(201, "Sandeep", 25000));
+		System.out.println("insert status: " + status);
 
-//		status = dao.updateEmployee(new Employee(109, "Sandeep", 25000));
-//		System.out.println("update status: " + status);
+		status = dao.updateEmployee(new Employee(201, "Sandeep", 25000));
+		System.out.println("update status: " + status);
 
 		Employee e = new Employee();
-		e.setId(109);
+		e.setId(201);
 		status = dao.deleteEmployee(e);
 		System.out.println("delete status: " + status);
 		

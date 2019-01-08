@@ -16,29 +16,29 @@ public class EmployeeDao {
 	}
 
 	public int saveEmployee(Employee e) {
-		String query = "insert into employee values('" + e.getId() + "','" + e.getName() + "','" + e.getSalary() + "')";
+		String query = "insert into employee values('" + e.getId() + "','" + e.getName() + "','" + e.getSalary() + "', 'development-department')";
 		return jdbcTemplate.update(query);
 	}
 
 	public int updateEmployee(Employee e) {
-		String query = "update employee set name='" + e.getName() + "',salary='" + e.getSalary() + "' where id='"
+		String query = "update employee set employee_name='" + e.getName() + "',salary='" + e.getSalary() + "' where employee_id='"
 				+ e.getId() + "' ";
 		return jdbcTemplate.update(query);
 	}
 
 	public int deleteEmployee(Employee e) {
-		String query = "delete from employee where id='" + e.getId() + "' ";
+		String query = "delete from employee where employee_id='" + e.getId() + "' ";
 		return jdbcTemplate.update(query);
 	}
 
 	public List<Employee> getEmployeesById(int id) {
-		String query = "select * from employee where id=" + id + " ";
+		String query = "select * from employee where employee_id=" + id + " ";
 		return jdbcTemplate.query(query, new RowMapper<Employee>() {
 			@Override
 			public Employee mapRow(ResultSet rs, int arg1) throws SQLException {
 				Employee emp = new Employee();
-				emp.setId(rs.getInt("id"));
-				emp.setName(rs.getString("name"));
+				emp.setId(rs.getInt("employee_id"));
+				emp.setName(rs.getString("employee_name"));
 				emp.setSalary(rs.getFloat("salary"));
 				return emp;
 			}
@@ -48,17 +48,18 @@ public class EmployeeDao {
 	}
 
 	public List<Employee> getEmployeesByName(String name) {
-		String query = "select * from employee where name='" + name + "'";
+		String query = "select * from employee where employee_name='" + name + "'";
 		return jdbcTemplate.query(query, new RowMapper<Employee>() {
 			@Override
 			public Employee mapRow(ResultSet rs, int arg1) throws SQLException {
 				Employee emp = new Employee();
-				emp.setId(rs.getInt("id"));
-				emp.setName(rs.getString("name"));
+				emp.setId(rs.getInt("employee_id"));
+				emp.setName(rs.getString("employee_name"));
 				emp.setSalary(rs.getFloat("salary"));
 				return emp;
 			}
 
-		});	}
+		});
+	}
 
 }
