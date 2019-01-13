@@ -18,7 +18,6 @@ public class EmployeeAppConfiguration {
 	public Employee employeeBean() {
 		Employee employe = new Employee();
 		employe.setName("Tejal Borkr");
-		employe.setMobile("909293864");
 		return employe;
 	}
 
