@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
-@ComponentScan({ "com.assimilate.springmvc.controllers", "com.assimilate.springmvc.business",
+@ComponentScan({ "com.assimilate.springmvc.controllers", "com.assimilate.springmvc.service",
 		"com.assimilate.springmvc.dal" })
 @Configuration
 public class AppConfiguration {
