@@ -10,12 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.assimilate.springmvc.service.EmployeeService;
+
 @Controller
 public class EmpController {
 
 	@Autowired
 	private EmpDao dao;// will inject dao from xml file
 
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
 	/*
 	 * It displays a form to input data, here "command" is a reserved request
 	 * attribute which is used to display object data into form
@@ -45,8 +51,8 @@ public class EmpController {
 		List<Emp> list = dao.getEmployees();
 		return new ModelAndView("viewemp", "list", list);
 	}
-
-	/*
+	
+		/*
 	 * It displays object data into form for the given id. The @PathVariable puts
 	 * URL data into variable.
 	 */
