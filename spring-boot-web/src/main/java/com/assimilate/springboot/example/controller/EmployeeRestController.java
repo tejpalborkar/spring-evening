@@ -2,8 +2,10 @@ package com.assimilate.springboot.example.controller;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assimilate.springboot.example.model.Employee;
+import com.assimilate.springboot.example.service.EmployeeService;
 
 @RestController
 @RequestMapping("/api/employees")
@@ -21,42 +24,34 @@ public class EmployeeRestController {
 
 	Set<Employee> employees = new HashSet<>();
 
+	@Autowired
+	EmployeeService employeeService;
+
 	@GetMapping("/getAllEmployees")
-	public Set<Employee> getEmployee() {
-		return employees;
+	public List<Employee> getEmployee() {
+
+		return employeeService.getAll();
 	}
 
 	@PostMapping("/create")
 	public Employee createEmployee(@RequestBody Employee employee) {
-		employees.add(employee);
+		employeeService.createEmployee(employee);
 		return employee;
 	}
 
 	@PutMapping("/update")
 	public Employee updateEmployee(@RequestBody Employee employeeToUpdate) {
 
-		for (Employee employee : employees) {
-			if (employee.getId().equals(employeeToUpdate.getId())) {
-				employee.setName(employeeToUpdate.getName());
-				employee.setSalary(employeeToUpdate.getSalary());
-			}
-		}
+		employeeService.updateEmployee(employeeToUpdate);
 
 		return employeeToUpdate;
 	}
 
 	@DeleteMapping("/delete/{employeeId}")
 	public Employee deleteEmployee(@PathVariable("employeeId") Integer employeeId) {
-
-		Iterator<Employee> empIterator = employees.iterator();
-		while (empIterator.hasNext()) {
-			Employee emp = empIterator.next();
-			if (emp.getId().equals(employeeId)) {
-				empIterator.remove();
-				break;
-			}
-		}
+		employeeService.deleteEmployeeById(employeeId);
 		return null;
+
 	}
 
 }
