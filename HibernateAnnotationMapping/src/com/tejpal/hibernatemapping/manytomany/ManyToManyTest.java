@@ -12,30 +12,39 @@ public class ManyToManyTest {
 	// https://dzone.com/tutorials/java/hibernate/hibernate-example/hibernate-mapping-many-to-many-using-annotations-1.html
 	public static void main(String[] args) {
 		Session session = HibernateUtil.getSession();
+		
 		Course course1 = new Course("Maths");
 		Course course2 = new Course("English");
 		Course course3 = new Course("Sciense");
 
-		Student student1 = new Student("Eswar");
+		Student student1 = new Student("Tejpal Borkar");
+		
 		Set<Course> courses = new HashSet<>();
 		courses.add(course1);
 		courses.add(course2);
 		courses.add(course3);
 
-	//	student1.setCourses(courses);
+		student1.setCourses(courses);
+		
+/*		session.save(student1);
+
+		System.out.println("Record inserted successfully");
+		
+		session.beginTransaction().commit();
+		
+		
 		Student student2 = new Student("Ram");
 		// student2.setCourses(courses);
 
-		// session.save(student1);
 		// session.save(student2);
 		// session.beginTransaction().commit();
-		System.out.println("Record inserted successfully");
 
 		// Retriving student and its courses
 		Student studentFetched = (Student) session.get(Student.class, student2.getStudentId());
 		// System.out.println(studentFetched + " Courses : " +
 		// studentFetched.getCourses().size());
 
+		
 		Course c1 = new Course("History");
 //		Course c2 = new Course("Geo");
 
@@ -46,14 +55,17 @@ public class ManyToManyTest {
 		c1.setStudents(students);
 		session.save(c1);
 		session.beginTransaction().commit();
+		*/
+		
+		
 		// Fetch Course with students. from courses find students
-		Course course = (Course) session.get(Course.class, c1.getCourseId());
-		System.out.println(course + " Student Count" + course.getStudents().size());
+		/*Course course = (Course) session.get(Course.class, 5l);
+		System.out.println(course + " Student Count: " + course.getStudents().size());
 		session.close();
 		session  =HibernateUtil.getSession();
-		
+		*/
 		//Fetch bidirectional results. from student find its courses.
-		Student stu = (Student) session.get(Student.class, student1.getStudentId());
-		System.out.println(stu + " Courses: " + stu.getCourses().iterator().next());
+		Student stu = (Student) session.get(Student.class, 5l);
+		System.out.println(stu + " Courses: " + stu.getCourses().size());
 	}
 }

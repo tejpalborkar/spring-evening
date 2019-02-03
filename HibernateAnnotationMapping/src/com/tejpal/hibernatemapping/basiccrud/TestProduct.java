@@ -1,10 +1,12 @@
 package com.tejpal.hibernatemapping.basiccrud;
 
-import java.util.List;
+import org.hibernate.Session;
+
+import com.tejpal.hibernatemapping.util.HibernateUtil;
 
 public class TestProduct {
 	public static void main(String[] args) {
-		ProductDao productDao = new ProductDao();
+		/*ProductDao productDao = new ProductDao();
 
 		Product product = new Product();
 		product.setProductName("Laptop");
@@ -46,5 +48,20 @@ public class TestProduct {
 		productTobeUpdated.setPrice((double) 30000);
 		
 		productDao.updateProduct(productTobeUpdated);
+*/	
+		
+		EmployeeAssimilate employee= new EmployeeAssimilate();
+	employee.setEmployeeName("Tejpal Borkar");
+	employee.setMobile("789845652");
+	
+	
+	
+	Session session = HibernateUtil.getSession();
+	
+	System.out.println("Storing employee in database");
+	
+	session.save(employee);
+	session.beginTransaction().commit();
+	
 	}
 }
