@@ -29,6 +29,7 @@ public class Department {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "dept_id")
 	private int departmentId;
+	
 	@Column(name = "dept_name")
 	private String departmentName;
 
