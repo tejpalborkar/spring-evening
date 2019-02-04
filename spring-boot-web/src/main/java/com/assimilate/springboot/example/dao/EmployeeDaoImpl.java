@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.assimilate.springboot.example.model.Employee;
 
-@Component
+//@Component
 public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Autowired
