@@ -1,5 +1,7 @@
 package com.tejpal.hibernatemapping.basiccrud;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -7,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.tejpal.hibernatemapping.util.HibernateUtil;
 
-public class ProductClient {
+public class ProductDao {
 
 	public Product save(Product product) {
 		/*
@@ -66,6 +68,47 @@ public class ProductClient {
 			transaction.commit();
 			System.out.println("Deleted successfully");
 		}
+	}
+
+	public List<Product> getAllProducts() {
+		Session session = HibernateUtil.getSession();
+		List<Product> products = session.createCriteria(Product.class).list();
+		return products;
+	}
+
+	public Product getProductByProductID(int productId) {
+
+		Session session = HibernateUtil.getSession();
+
+		return (Product) session.get(Product.class, productId);
+
+	}
+
+	public void deleteProductById(int productId) {
+
+		Session session = HibernateUtil.getSession();
+
+		Product product = getProductByProductID(productId);
+
+		session.delete(product);
+
+		session.beginTransaction().commit();
+
+		System.out.println("Product deleted successfully with id:" + productId);
+
+	}
+
+	public void updateProduct(Product productTobeUpdated) {
+		Session session = HibernateUtil.getSession();
+
+		Product product = getProductByProductID(productTobeUpdated.getProductId());
+
+		product.setBrand(productTobeUpdated.getBrand());
+		product.setPrice(productTobeUpdated.getPrice());
+
+		session.update(product);
+		session.beginTransaction().commit();
+
 	}
 
 }

@@ -3,7 +3,7 @@ package com.tejpal.hibernatemapping.basiccrud;
 public class Test {
 
 	public static void main(String[] args) {
-		ProductClient productClient = new ProductClient();
+		ProductDao productClient = new ProductDao();
 
 		/*Product product = new Product();
 

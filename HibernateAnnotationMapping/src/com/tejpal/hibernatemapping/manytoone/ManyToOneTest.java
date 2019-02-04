@@ -21,6 +21,8 @@ public class ManyToOneTest {
 			// explicitly when the student object is persisted the address will
 			// be automatically saved.
 			session.save(address);
+			
+			
 			Student student1 = new Student("Eswar", address);
 			Student student2 = new Student("Joe", address);
 

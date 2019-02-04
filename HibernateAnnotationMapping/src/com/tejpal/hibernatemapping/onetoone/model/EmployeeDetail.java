@@ -120,7 +120,7 @@ public class EmployeeDetail {
 	@Override
 	public String toString() {
 		return "EmployeeDetail [employeeId=" + employeeId + ", street=" + street + ", city=" + city + ", state=" + state
-				+ ", country=" + country + ", employee=" + employee + "]";
+				+ ", country=" + country + ", employee=" +  "]";
 	}
 
 }
