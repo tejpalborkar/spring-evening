@@ -30,9 +30,9 @@ public class Client {
 		System.out.println("Addres: "+emp.getEmpAddress());
 		
 		*/
-		Fruits fruits =(Fruits) applicationContext.getBean("fruits");
-		
-		fruits.getFruitNames().forEach(System.out::println);
+//		Fruits fruits =(Fruits) applicationContext.getBean("fruits");
+//		
+//		fruits.getFruitNames().forEach(System.out::println);
 		
 	/*	List<String> fruitList= fruits.getFruitNames();
 		for (String name : fruitList) {

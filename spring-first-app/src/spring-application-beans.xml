@@ -8,23 +8,23 @@
 		<property name="year" value="123"></property>
 	</bean>
  -->
-<bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="byName">
+<!-- <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="byName">
 		<property name="model" value="BMW"></property>
 		<property name="year" value="123"></property>
-	</bean>
-
-	<!-- 
+</bean>
+ -->
+<!-- 
 	 <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="byType">
 		<property name="model" value="BMW"></property>
 		<property name="year" value="123"></property>
-	</bean> -->
-	<!-- <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="constructor">
+	</bean>  -->
+	 <bean id="car" class="com.assisimilate.spring.autowiring.Car"  autowire="constructor">
 		<property name="model" value="BMW"></property>
 		<property name="year" value="123"></property>
         <constructor-arg value="Mukesh" index="0"/>
 		<constructor-arg value="24" index="1" />
 	</bean>
-	 -->
+	
 	<bean id="engine" class="com.assisimilate.spring.autowiring.Engine">
 		<property name="chasisNo" value="12345678"></property>
 	</bean>

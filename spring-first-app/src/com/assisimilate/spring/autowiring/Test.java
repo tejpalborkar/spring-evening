@@ -10,10 +10,10 @@ public class Test {
 
 		Car car = (Car) applicationContext.getBean("car");
 		System.out.println(car);
-		
-		Engine engine = (Engine) applicationContext.getBean("engine");
-		
-		System.out.println("Engine bean: "+ engine);
-
+		/*
+		 * Engine engine = (Engine) applicationContext.getBean("engine");
+		 * 
+		 * System.out.println("Engine bean: "+ engine);
+		 */
 	}
 }

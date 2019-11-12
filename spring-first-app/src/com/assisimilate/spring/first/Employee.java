@@ -3,8 +3,8 @@ package com.assisimilate.spring.first;
 public class Employee {
 
 	private Integer id;
-	private String firstName;
 	
+	private String firstName;
 	private Address empAddress;
 	
 	
@@ -26,7 +26,7 @@ public class Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + "]"+empAddress;
 	}
 
 	public Address getEmpAddress() {
